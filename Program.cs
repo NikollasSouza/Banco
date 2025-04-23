@@ -1,11 +1,11 @@
 using System;
 
-namespace Banco
+namespace AtividadeBanco
 {
     class Program
     {
-        const int tam = 10;
-        static string[] fila = new string[tam];
+        const int tamanho = 10;
+        static string[] fila = new string[tamanho];
         static int fim = 0;
 
         static void Main(string[] args)
@@ -13,10 +13,10 @@ namespace Banco
             string opcao;
             do
             {
-                Console.WriteLine("\n1 - Inserir cliente");
+                Console.WriteLine("\n1 - Inserir o Cliente");
                 Console.WriteLine("2 - Inserir cliente prioritário");
                 Console.WriteLine("3 - Listar fila");
-                Console.WriteLine("4 - Atender cliente");
+                Console.WriteLine("4 - Atender o Cliente");
                 Console.WriteLine("q - Sair");
                 Console.Write("Escolha: ");
                 opcao = Console.ReadLine();
@@ -27,7 +27,7 @@ namespace Banco
                     case "2": InserirPrioritario(); break;
                     case "3": ListarFila(); break;
                     case "4": AtenderCliente(); break;
-                    case "q": Console.WriteLine("Encerrando..."); break;
+                    case "q": Console.WriteLine("Saindo..."); break;
                     default: Console.WriteLine("Opção inválida!"); break;
                 }
             } while (opcao != "q");
@@ -35,7 +35,7 @@ namespace Banco
 
         static void InserirCliente()
         {
-            if (fim >= tam) { Console.WriteLine("Fila cheia!"); return; }
+            if (fim >= tamanho) { Console.WriteLine("A Fila esta cheia!"); return; }
             Console.Write("Nome do cliente: ");
             fila[fim++] = Console.ReadLine();
             Console.WriteLine("Cliente adicionado.");
@@ -43,7 +43,7 @@ namespace Banco
 
         static void InserirPrioritario()
         {
-            if (fim >= tam) { Console.WriteLine("Fila cheia!"); return; }
+            if (fim >= tamanho) { Console.WriteLine("A Fila esta cheia!"); return; }
             Console.Write("Nome do cliente prioritário: ");
             string nome = Console.ReadLine();
 
@@ -57,13 +57,13 @@ namespace Banco
         static void ListarFila()
         {
             Console.WriteLine("\nFila atual:");
-            if (fim == 0) { Console.WriteLine("Fila vazia."); return; }
+            if (fim == 0) { Console.WriteLine("A Fila esta vazia."); return; }
             for (int i = 0; i < fim; i++) Console.WriteLine($"{i + 1}. {fila[i]}");
         }
 
         static void AtenderCliente()
         {
-            if (fim == 0) { Console.WriteLine("Fila vazia."); return; }
+            if (fim == 0) { Console.WriteLine("A Fila esta vazia."); return; }
             Console.WriteLine($"Atendendo: {fila[0]}");
 
            
